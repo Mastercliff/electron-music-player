@@ -1,0 +1,35 @@
+/* V1.1
+.left-box{
+    width: 20%;
+    height: 80%;
+    display: inline-block;
+    position: absolute;
+    left: 1%;
+    top: 5%;
+    z-index: 3;
+    border: solid 1px white;
+    border-radius: 0.8em ;
+}
+.right-box{
+    width: 20%;
+    height: 80%;
+    display: inline-block;
+    position: absolute;
+    right: 1%;
+    top: 5%;
+    z-index: 3;
+    border: solid 1px white;
+    border-radius: 0.8em ;
+}
+
+@media screen and (max-width: 1280px) {
+    .left-box {
+      display: none;
+    }
+    .right-box{
+      display: none;
+    }
+  }
+  */
+
+  

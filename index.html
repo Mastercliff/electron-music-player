@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
+    <title>Boob</title>
+    <link rel="stylesheet" href="./boob_icons/css/all.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/window-alerts.css">
+    <link href=.boob_icons/css/solid.css" rel="stylesheet">
+    <link rel="icon" href="./boob_icons/icon.png">
+
+</head>
+<body>
+    <div id="alert-window">
+        <div id="alert-message">
+        </div>
+        <div id="alert-box-buttons">
+                <div alt="exit" class="alert-buttons" onclick="exit()">
+                    EXIT
+                </div>
+                <div alt="cancel" class="alert-buttons" onclick="cancel()">
+                    CANCEL
+                </div>
+        </div>
+    </div>
+
+    <div id="main-box" class="main-box">
+
+        <button class="menu-button" onclick="open_file()">
+                <i class="fas fa-layer-group"></i>
+            </button>
+        <button class="menu-button" onclick="window.alert('In development...')">
+            <i class="fas fa-tools"></i>
+        </button>
+        <button class="menu-button" onclick="about()">
+            <i class="fas fa-code"></i>
+        </button>
+        <button class="menu-button" onclick="shutdown()">
+                <i class="fas fa-power-off"></i>
+        </button>
+         <hr style="width: 100%;">
+
+        <div class="music-box">
+            <h3>MUSIC LIST</h3>
+            <div class="music-list">
+                <ul id="list">
+                   
+                </ul>
+            </div>
+
+        </div>
+        <div class="music-art">
+            <h3>MUSIC ART</h3>
+
+            <div id='art'>
+             <i  class="fas fa-music art-img"></i>
+            </div>
+        </div>
+
+
+        
+       <div class="music-progress">
+
+            <div class="progress-object">
+                    <div id="progress">
+
+                    </div>
+            </div>
+            
+            <div class="act-music">
+               <div id="m_name">
+                   
+               </div>
+            </div>
+
+       </div>
+        
+         <div class="action-buttons">
+            <button class="action-buttons-inside" onclick="back_music()">
+                    <i class="fas fa-step-backward"></i>
+            </button>
+            <button onclick="stop_au()" class="action-buttons-inside">
+                    <i class="fas fa-stop"></i>
+            </button>                    
+
+            <button class="action-buttons-inside" onclick="play_pause()">
+                    <i id="play" class="fas fa-play"></i>
+                    <i id="pause" class="fas fa-pause-circle"></i>
+            </button>
+            <button class="action-buttons-inside" onclick="next_music()">
+                    <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+            
+    </div>
+    <div class="back-set">
+    
+    </div>
+    <audio value="" preload="auto" id="player" src=""></audio>
+
+<script src="./renderer.js"></script>
+<script src="./progress_music_controls.js"></script>
+<script src="./menu_options.js"></script>
+   
+</body>
+</html>
