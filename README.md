@@ -10,12 +10,13 @@
 
 
 
-## Using the app
+## Using the source
 
 ### You need install
 
 - Nodejs    V8.10.0 or Higher
 - Npm       V3.5.2 or Higher
+- Electron 7.1.2
 - Chromium  V78.0.3904.108 or Higher
 
 ### Download && Execute
