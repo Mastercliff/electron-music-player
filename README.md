@@ -1,11 +1,11 @@
 # Boob music player
 
-![image](./screen-shots/UI-V2.png)
+![image](./screen-shots/UI-V2_1.png)
 
 ## Supported Platforms
 
 - [x] Linux
-- [ ] Windows(coming soon)
+- [x] Windows(coming soon)
 - [ ] Mac OS
 
 
@@ -20,12 +20,12 @@
 - Chromium  V78.0.3904.108 or Higher
 
 ### Download && Execute
-- Linux
+- Linux or Windows
 > git clone https://github.com/Mastercliff/electron-music-player
 
 > cd electron-music-player
 
-> electron .
+> electron . (If dont work run 'npm start')
 
 ## Compiled version
 

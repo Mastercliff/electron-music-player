@@ -39,10 +39,16 @@ function open_file(){ //This function opens the files and saves them to a .txt f
 
     
 }
+//Active the player Viwer
+function player_Viwer(){
+    main_box.style.display = 'inline';
+    left_menu_button[0].style.display = '';
+    side_left_bar.style.display   = '';
+}
 
 function about(){
    let message = `Version: ${version}\nThis app is still under development\n \nDeveloper: MasterCliff\nGithub: https://github.com/Mastercliff\nElectron Version: 7.1.2`
-   main_box.style.display = 'none';
+   dNone();
    alert_window.style.display = 'inline-block';
    alert_message.innerText = `${message}`;
    alert_message.style.textAlign = 'center';
@@ -55,8 +61,8 @@ function about(){
 
 function shutdown(){
     let message = "You really want leave the\n Aplication?"
+    dNone();
     alert_message.innerText = message
-    main_box.style.display = 'none';
     alert_window.style.display = 'inline-block';
     alert_message.style.textAlign = 'center';
     exit_button[0].style.zIndex = ''
@@ -71,4 +77,13 @@ function exit(){
 function cancel(){
     main_box.style.display = 'inline';
     alert_window.style.display = 'none';
+    left_menu_button[0].style.display = '';
+    side_left_bar.style.display   = '';
+}
+
+//Set the elements display to 'none'
+function dNone(){
+    main_box.style.display = 'none';
+    left_menu_button[0].style.display = 'none';
+    side_left_bar.style.display   = 'none';
 }

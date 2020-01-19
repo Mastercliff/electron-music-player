@@ -1,35 +1,50 @@
-/* V1.1
-.left-box{
-    width: 20%;
-    height: 80%;
-    display: inline-block;
-    position: absolute;
-    left: 1%;
-    top: 5%;
-    z-index: 3;
-    border: solid 1px white;
-    border-radius: 0.8em ;
-}
-.right-box{
-    width: 20%;
-    height: 80%;
-    display: inline-block;
-    position: absolute;
-    right: 1%;
-    top: 5%;
-    z-index: 3;
-    border: solid 1px white;
-    border-radius: 0.8em ;
+#side-left-bar{
+  text-align: center;
+  width: 10%;
+  min-width: 10%;
+  max-width: 10%;
+  height: 60%;
+  max-height: 400px;
+  display: inline-block;
+  position: absolute;
+  left: 8%;
+  top: 20%;
+  border-radius: 0.8em;
+  box-shadow: 0.5px 0.5px 10px 10px rgba(0, 0, 0, 0.096);
 }
 
+.left-button-box{
+  margin-top: 80px;
+}
+
+.left-menu-button{
+  margin: 0em;
+  display: block;
+  border: solid 1px transparent;
+  height: 48px;
+  width: 48px;
+  margin-top: 6px;
+  position: relative;
+  top: 2%;
+  right: -30%;
+  font-size: 1.5em;
+  transition: all 0.5s;
+  border-radius: 90em;
+}
+
+.left-menu-button:hover{
+  border: solid 1px white;
+}
+
+
 @media screen and (max-width: 1280px) {
-    .left-box {
+    #side-left-bar {
       display: none;
     }
-    .right-box{
+    .left-menu-button{
       display: none;
     }
   }
-  */
+
 
   

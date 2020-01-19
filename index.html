@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="./boob_icons/css/all.css">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/window-alerts.css">
+    <link rel="stylesheet" href="./styles/side-options.css">
     <link href=.boob_icons/css/solid.css" rel="stylesheet">
     <link rel="icon" href="./boob_icons/icon.png">
 
 </head>
 <body>
+    <!--Alert window configuration-->
     <div id="alert-window">
         <div id="alert-message">
         </div>
@@ -24,21 +26,39 @@
                 </div>
         </div>
     </div>
+    <!--Alert window configuration-->
+
+
+    <div id="side-left-bar">
+        <div class="left-button-box">
+            <button class="left-menu-button" onclick="player_Viwer()">
+                <i class="fas fa-music"></i>
+                <span class="ttext">Player</span>
+            </button>     
+            <button class="left-menu-button" onclick="window.alert('In development...')">
+                <i class="fas fa-tools"></i>
+            </button>
+            <button class="left-menu-button"  onclick="about()">
+                <i class="fas fa-code"></i>
+            </button>
+            <button class="left-menu-button" onclick="shutdown()">
+                    <i class="fas fa-power-off"></i>
+            </button>
+        </div>
+    </div>
 
     <div id="main-box" class="main-box">
 
         <button class="menu-button" onclick="open_file()">
                 <i class="fas fa-layer-group"></i>
-            </button>
+                <span class="ttext">Choose a music file</span>
+        </button>
+
         <button class="menu-button" onclick="window.alert('In development...')">
-            <i class="fas fa-tools"></i>
+            <i class="fas fa-list"></i>
+                <span class="ttext">Select the music list</span>
         </button>
-        <button class="menu-button" onclick="about()">
-            <i class="fas fa-code"></i>
-        </button>
-        <button class="menu-button" onclick="shutdown()">
-                <i class="fas fa-power-off"></i>
-        </button>
+
          <hr style="width: 100%;">
 
         <div class="music-box">

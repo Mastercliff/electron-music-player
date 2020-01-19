@@ -47,70 +47,70 @@ function play_pause(){
         play.style.display = 'inline-block'
     }
   
-  }
-  
-  function stop_au(){
-      player.pause();
-      player.currentTime = 0;
-      pause.style.display = 'none'
-      play.style.display = 'inline-block'
-  }
-  
-  function next_music(){
-    let index;
-    let n_index;
-    clearTimeout(timer);
-     index = musicPath.indexOf(player.value)
-     n_index = index + 1;
-     if(n_index < musicPath.length){
-       player.src   = musicPath[n_index]
-       player.value = musicPath[n_index]
-       music_name = get_music_name(musicPath[n_index])
-       set_music_name(music_name);
-       console.log(index)
-       console.log(player.src)
-       console.log(n_index)
-       play_pause();
-       play_pause();
-     }
-     else{
-      console.log('Back to first music')
-      player.src   = musicPath[0]
-      player.value = musicPath[0]
-      music_name = get_music_name(musicPath[0])
+}
+
+function stop_au(){
+    player.pause();
+    player.currentTime = 0;
+    pause.style.display = 'none'
+    play.style.display = 'inline-block'
+}
+
+function next_music(){
+  let index;
+  let n_index;
+  clearTimeout(timer);
+    index = musicPath.indexOf(player.value)
+    n_index = index + 1;
+    if(n_index < musicPath.length){
+      player.src   = musicPath[n_index]
+      player.value = musicPath[n_index]
+      music_name = get_music_name(musicPath[n_index])
+      set_music_name(music_name);
+      console.log(index)
+      console.log(player.src)
+      console.log(n_index)
+      play_pause();
+      play_pause();
+    }
+    else{
+    console.log('Back to first music')
+    player.src   = musicPath[0]
+    player.value = musicPath[0]
+    music_name = get_music_name(musicPath[0])
+    set_music_name(music_name)
+    play_pause();
+    play_pause();
+    }
+    
+}
+
+function back_music(){
+  let index;
+  let n_index;
+  clearTimeout(timer);
+    index = musicPath.indexOf(player.value)
+    n_index = index - 1;
+    if(n_index <= musicPath.length){
+      if(n_index != -1){
+      player.src   = musicPath[n_index]
+      player.value = musicPath[n_index]
+      music_name = get_music_name(musicPath[n_index])
       set_music_name(music_name)
       play_pause();
       play_pause();
-     }
-     
-  }
-  
-  function back_music(){
-    let index;
-    let n_index;
-    clearTimeout(timer);
-     index = musicPath.indexOf(player.value)
-     n_index = index - 1;
-     if(n_index <= musicPath.length){
-       if(n_index != -1){
-        player.src   = musicPath[n_index]
-        player.value = musicPath[n_index]
-        music_name = get_music_name(musicPath[n_index])
-        set_music_name(music_name)
-        play_pause();
-        play_pause();
-       }else{
-        player.src   = musicPath[0]
-        player.value = musicPath[0]
-       }
-  
-     }
-     else{
-       console.log('Index error')
-     }
-     
-  }
-  
+      }else{
+      player.src   = musicPath[0]
+      player.value = musicPath[0]
+      }
+
+    }
+    else{
+      console.log('Index error')
+    }
+    
+}
+
   
 //Controls of music states
 
@@ -140,7 +140,7 @@ function clear_list(){
   }
   
   
-  function set_music(){
+function set_music(){
     
   
     document.getElementById('list').addEventListener('click', function(e) {
@@ -159,9 +159,9 @@ function clear_list(){
     }, false);
     
   
-  }
-  function set_music_name(name){
+}
+function set_music_name(name){
     act_music.innerHTML = `<marquee>${name}</marquee>`;
-  }
+}
   
 //Set the music

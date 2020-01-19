@@ -31,23 +31,26 @@ body{
     user-select:none;
     -o-user-select:none;
 }
+ul{
+
+}
 li{
     cursor: pointer;
     list-style-type: none;
-    border: solid 1px transparent;
-    margin-bottom: 6px; 
+    border-bottom: solid 1px white;
+    border-top: solid 1px white;
+    margin: 0;
     position: relative;
-    height: 30px;
-    left: -10%;
-    overflow: hidden;
-    border-radius: 0.8em;
-    text-overflow: ellipsis;
+    height: 40px;
+    width:120%;
+    left: -20%;
+    overflow:hidden;
     transition: all 0.5s;
 }
 
 
 li:hover{
-    border: solid 1px rgb(78, 83, 100);
+    border-color: rgb(78, 83, 100);
     box-shadow: 0.5px 0.5px 1px 1px rgba(255, 255, 255, 0.185);
 }
 
@@ -60,13 +63,16 @@ button{
     color: white;
 }
 
+h3{
+    font-size: 13px
+}
 .menu-button{
     border: solid 1px transparent;
     height: 48px;
     width: 48px;
     position: relative;
     top: -2%;
-    right: 35%;
+    right: 0%;
     font-size: 1.5em;
     transition: all 0.5s;
     border-radius: 90em;
@@ -89,18 +95,18 @@ button{
 }
 .main-box{
     margin: 0%;
-    font-family: monospace;
+    font-family: arial;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(31, 31, 31, 0); /* Black w/opacity/see-through */
     color: rgb(240, 240, 240);
     font-weight: bold;
+    font-size: 13px;
     border-radius: 0.8em;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 3;
-    box-shadow: 24px 24px 90px 24px rgba(0, 0, 0, 0.301);
+    box-shadow: 0.5px 0.5px 10px 10px rgba(0, 0, 0, 0.096);
     width: 700px;
     height: 600px;
     padding: 20px;
@@ -121,25 +127,22 @@ button{
     width: 100%;
     max-height: 300px;
     height: 100%;
-    border: solid 3px white;
-    border-radius: 0.8em;
+    border: solid 1px white;
     margin: 0%;
     transition: all 0.5s;
 }
 .music-list{
     overflow: auto;
     max-width: 250px;
-    width: 95%;
+    width: 100%;
     max-height: 250px;
     position: relative;
     margin: 0%;
-    left: 5%;
+    left: 0%;
     top: -4%;
 }
 
-.music-list:hover{
-    overflow: auto;
-}
+
 .music-art{
     position: fixed;
     top: 20%;
@@ -148,8 +151,8 @@ button{
     width: 100%;
     max-height: 300px;
     height: 100%;
-    border: solid 3px white;
-    border-radius: 0.8em;
+    border: solid 1px white;
+    
 }
 #art{
     margin: 0;
@@ -157,7 +160,7 @@ button{
     background-repeat: no-repeat;
     width: 80%;
     height: 80%;
-    border: solid 3px white;
+    border: solid 1px white;
     border-radius: 20em;
     font-size: 8em;
     position: absolute;
@@ -170,18 +173,8 @@ button{
     left: -5%;
 }
 
-.music-progress{
-    width: 80%;
-    height: 6%;
-    border: 1px solid #f1f1f159;
-    border-radius: 0.4em;
-    position: fixed;
-    bottom: 12%;
-    left:10%;
-}
 
-
-/*Configura os botões */
+/*Configure the buttons*/
 .action-buttons{
     text-align: center;
     width: 50%;
@@ -209,6 +202,19 @@ button{
 .fa-pause-circle{
     display: none;
 }
+/*Configure the buttons*/
+
+/*Music bottom bar*/
+.music-progress{
+    width: 80%;
+    height: 6%;
+    border: 1px solid #f1f1f159;
+    border-radius: 0.4em;
+    position: fixed;
+    bottom: 12%;
+    left:10%;
+}
+
 
 .progress-object{
     background-color: transparent ;
@@ -235,4 +241,32 @@ button{
     background-color: rgb(240, 240, 240) ;
     width: 0;
     height: 6px;
+}
+
+/*Music bottom bar*/
+
+
+.ttext {
+    visibility: hidden;
+    width: 140px;
+    background-color: rgb(41, 41, 41);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 0.8em;
+    box-shadow: 1px 1px 20px 20px rgba(0, 0, 0, 0.151);
+    font-size: 13px;
+   
+    position: absolute;
+    left: 50px;
+    z-index: 1;
+  }
+  
+
+.menu-button:hover .ttext {
+    visibility: visible;
+}
+
+.left-menu-button:hover .ttext {
+    visibility: visible;
 }
