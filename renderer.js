@@ -5,23 +5,25 @@ const os         = require('os');
 
 
 //getting the HTML elements
-let player           = document.getElementById("player");
-let pause            = document.getElementById("pause");
-let play             = document.getElementById("play");
-let progress         = document.getElementById("progress");
-let act_music        = document.getElementById("m_name");
-let music_list       = document.getElementById("list");
-let main_box         = document.getElementById("main-box");
-let alert_window     = document.getElementById("alert-window");
-let alert_message    = document.getElementById("alert-message");
-let exit_button      = document.getElementsByClassName("alert-buttons");
-let side_left_bar    = document.getElementById("side-left-bar");
-let left_menu_button = document.getElementsByClassName("left-menu-button");
+let player              = document.getElementById("player");
+let pause               = document.getElementById("pause");
+let play                = document.getElementById("play");
+let progress            = document.getElementById("progress");
+let act_music           = document.getElementById("m_name");
+let music_list          = document.getElementById("list");
+let main_box            = document.getElementById("main-box");
+let alert_window        = document.getElementById("alert-window");
+let alert_message       = document.getElementById("alert-message");
+let exit_button         = document.getElementsByClassName("alert-buttons");
+let side_left_bar       = document.getElementById("side-left-bar");
+let left_menu_button    = document.getElementsByClassName("left-menu-button");
+let audio_control_block = document.getElementById("audio-control-block");
+let audio_control    = document.getElementById("audio-control");
 //getting the HTML elements
 
 
 //declaring the variables
-let version = '1.1';
+let version = '1.1.1';
 let timer;
 let percent = 0;
 let selectedPaths;

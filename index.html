@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/window-alerts.css">
     <link rel="stylesheet" href="./styles/side-options.css">
-    <link href=.boob_icons/css/solid.css" rel="stylesheet">
+    <link href=".boob_icons/css/solid.css" rel="stylesheet">
     <link rel="icon" href="./boob_icons/icon.png">
 
 </head>
@@ -34,16 +34,26 @@
             <button class="left-menu-button" onclick="player_Viwer()">
                 <i class="fas fa-music"></i>
                 <span class="ttext">Player</span>
-            </button>     
+            </button>
             <button class="left-menu-button" onclick="window.alert('In development...')">
                 <i class="fas fa-tools"></i>
+                <span class="ttext">Settings</span>
             </button>
             <button class="left-menu-button"  onclick="about()">
                 <i class="fas fa-code"></i>
+                <span class="ttext">About</span>
             </button>
             <button class="left-menu-button" onclick="shutdown()">
-                    <i class="fas fa-power-off"></i>
+                <i class="fas fa-power-off"></i>
+                <span class="ttext">Quit</span>
             </button>
+        </div>
+    </div>
+
+    <div id="audio-control-block">
+        <div class="block">
+            <i class="fas fa-volume-up" style="position:relative; top:5px; font-size: 1.5em;"></i>
+            <input id="audio-control" type="range" name="vol" min="0" max="100" oninput="set_volume()">
         </div>
     </div>
 
@@ -59,13 +69,12 @@
                 <span class="ttext">Select the music list</span>
         </button>
 
-         <hr style="width: 100%;">
+         <hr style="width: 100%; border: solid 1px rgba(0, 0, 0, 0.096);">
 
         <div class="music-box">
             <h3>MUSIC LIST</h3>
             <div class="music-list">
                 <ul id="list">
-                   
                 </ul>
             </div>
 
@@ -79,7 +88,7 @@
         </div>
 
 
-        
+
        <div class="music-progress">
 
             <div class="progress-object">
@@ -87,22 +96,20 @@
 
                     </div>
             </div>
-            
+
             <div class="act-music">
                <div id="m_name">
-                   
                </div>
             </div>
 
        </div>
-        
          <div class="action-buttons">
             <button class="action-buttons-inside" onclick="back_music()">
                     <i class="fas fa-step-backward"></i>
             </button>
             <button onclick="stop_au()" class="action-buttons-inside">
                     <i class="fas fa-stop"></i>
-            </button>                    
+            </button>
 
             <button class="action-buttons-inside" onclick="play_pause()">
                     <i id="play" class="fas fa-play"></i>
@@ -112,16 +119,15 @@
                     <i class="fas fa-step-forward"></i>
             </button>
         </div>
-            
     </div>
     <div class="back-set">
-    
+
     </div>
     <audio value="" preload="auto" id="player" src=""></audio>
 
 <script src="./renderer.js"></script>
 <script src="./music_controls.js"></script>
 <script src="./menu_options.js"></script>
-   
+
 </body>
 </html>

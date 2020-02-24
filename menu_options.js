@@ -9,9 +9,9 @@ function open_file(){ //This function opens the files and saves them to a .txt f
      clear_list()
      musicPath = selectedPaths;
      for(let x=0; x<selectedPaths.length;x++){
-     music_name =  get_music_name(selectedPaths[x]);  
-     var node = document.createElement("LI");            
-     var textnode = document.createTextNode(`${music_name}`); 
+     music_name =  get_music_name(selectedPaths[x]);
+     var node = document.createElement("LI");
+     var textnode = document.createTextNode(`${music_name}`);
      var on_click = document.createAttribute('onclick');
      let alt  = document.createAttribute('alt');
      let val  = document.createAttribute('value');
@@ -23,12 +23,12 @@ function open_file(){ //This function opens the files and saves them to a .txt f
      node.setAttributeNode(alt);
      node.setAttributeNode(val);
      node.setAttributeNode(on_click);
-     node.setAttributeNode(clas)  
-     node.appendChild(textnode);                              
+     node.setAttributeNode(clas)
+     node.appendChild(textnode);
      music_list.appendChild(node);
      temp = `${selectedPaths[x]}\n`
-     teste = teste + temp  
-     
+     teste = teste + temp
+
      try { fs.writeFileSync('music-list-paths.txt',teste, 'utf-8'); }
      catch(e) { alert('not save!'); }
 
@@ -37,7 +37,7 @@ function open_file(){ //This function opens the files and saves them to a .txt f
     }
 
 
-    
+
 }
 //Active the player Viwer
 function player_Viwer(){
@@ -55,7 +55,7 @@ function about(){
    exit_button[0].style.zIndex = '-1'
    exit_button[0].style.color  = 'rgba(0, 0, 0, 0.2)'
    exit_button[0].style.borderColor = 'rgba(0, 0, 0, 0.2)'
-   
+
 
 }
 
@@ -79,10 +79,12 @@ function cancel(){
     alert_window.style.display = 'none';
     left_menu_button[0].style.display = '';
     side_left_bar.style.display   = '';
+    audio_control_block.style.display = '';
 }
 
 //Set the elements display to 'none'
 function dNone(){
+    audio_control_block.style.display = 'none';
     main_box.style.display = 'none';
     left_menu_button[0].style.display = 'none';
     side_left_bar.style.display   = 'none';

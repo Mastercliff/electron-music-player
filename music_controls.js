@@ -7,27 +7,26 @@ player.addEventListener("playing", function(_event) {
     clearTimeout(timer);
     console.log('exe')
   });
-  
-  
+
   var advance = function(duration, element) {
-  
+
     increment = 10/duration
     percent = Math.min(increment * element.currentTime * 10, 100);
     a =  percent+'%'
     progress.style.width = a;
     startTimer(duration, element);
   }
-  var startTimer = function(duration, element){ 
-      
+  var startTimer = function(duration, element){
+
     timer = setTimeout(function (){advance(duration, element)}, 100);
-  
+
     let dur = (player.duration/60).toFixed(2)
     let ct  = (player.currentTime/60).toFixed(2)
-  
+
     if(ct == dur){
       next_music()
     }
-  
+
   }
 //Progress bar
 
@@ -39,14 +38,14 @@ function play_pause(){
         player.play()
         pause.style.display = 'inline-block'
         play.style.display = 'none'
-  
+
     }
     else{
         player.pause()
         pause.style.display = 'none'
         play.style.display = 'inline-block'
     }
-  
+
 }
 
 function stop_au(){
@@ -82,7 +81,7 @@ function next_music(){
     play_pause();
     play_pause();
     }
-    
+
 }
 
 function back_music(){
@@ -108,16 +107,15 @@ function back_music(){
     else{
       console.log('Index error')
     }
-    
 }
 
-  
+
 //Controls of music states
 
 //Set the music
 function clear_list(){
     let music_items = document.getElementsByClassName('music_items');
-  
+
     if(music_items.length == 0){
       console.log('continue')
     }
@@ -131,22 +129,22 @@ function clear_list(){
           music_items[index].remove()
           console.log('remove ' + index)
         }
-  
+
       }
     }
-  
-    
-  
+
+
+
   }
-  
-  
+
+
 function set_music(){
-    
-  
+
+
     document.getElementById('list').addEventListener('click', function(e) {
       e = e || window.event;
       var target = e.target || e.srcElement
-         text = target.textContent || target.innerText;  
+         text = target.textContent || target.innerText;
          target.alt = musicPath[target.value];
          clearTimeout(timer);
           player.src = target.alt;
@@ -157,11 +155,17 @@ function set_music(){
           stop_au();
           play_pause();
     }, false);
-    
-  
+
+
 }
 function set_music_name(name){
     act_music.innerHTML = `<marquee>${name}</marquee>`;
 }
-  
+
 //Set the music
+
+function set_volume(){
+  let vol_value = audio_control.value;
+  let vol_result = vol_value/100;
+  player.volume = `${vol_result}`;
+}
