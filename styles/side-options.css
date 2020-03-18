@@ -41,17 +41,18 @@
 
 #audio-control-block{
   text-align: center;
-  width: 16%;
-  min-width: 10%;
-  max-width: 50%;
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
   height: 10%;
-  max-height: 400px;
+  max-height: 80px;
   display: inline-block;
   position: absolute;
-  left: 80%;
-  top: 4%;
+  right:  50px;
+  top: 60px;
   border-radius: 0.8em;
   box-shadow: 0.5px 0.5px 10px 10px rgba(0, 0, 0, 0.096);
+  background-color: transparent;
 }
 .block{
   color: grey;

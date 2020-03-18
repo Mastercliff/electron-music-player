@@ -112,9 +112,9 @@ function back_music(){
 
 //Controls of music states
 
-//Set the music
+
 function clear_list(){
-    let music_items = document.getElementsByClassName('music_items');
+    let music_items = document.getElementsByClassName('music-list-item');
 
     if(music_items.length == 0){
       console.log('continue')
@@ -137,22 +137,23 @@ function clear_list(){
 
   }
 
-
+//Set the music
 function set_music(){
-
-
+    stop_au();
     document.getElementById('list').addEventListener('click', function(e) {
       e = e || window.event;
-      var target = e.target || e.srcElement
+
+      var target = e.target.id || e.srcElement
+
          text = target.textContent || target.innerText;
          target.alt = musicPath[target.value];
          clearTimeout(timer);
+          console.log("Chegou aqui " + target.alt);
           player.src = target.alt;
           player.value = musicPath[target.value];
           console.log(target.alt, target.value);
           music_name = get_music_name(target.alt);
           set_music_name(music_name);
-          stop_au();
           play_pause();
     }, false);
 

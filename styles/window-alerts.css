@@ -43,7 +43,7 @@
 }
 #alert-message{
     overflow: auto;
-    font: normal 18px monospace;
+    font: normal 15px monospace;
     color: white;
     max-height: 150px;
     position: relative;

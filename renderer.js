@@ -1,4 +1,5 @@
-const { dialog } = require('electron').remote;
+const { dialog} = require('electron').remote;
+const {remote}    = require('electron');
 const {app}      = require('electron').remote;
 const fs         = require('fs');
 const os         = require('os');
@@ -53,22 +54,26 @@ if(musicPath.length > 0){
   temp = musicPath;
   musicPath  = temp.splice(0,size-1);
   for(let x=0; x<musicPath.length;x++){
-    music_name =  get_music_name(musicPath[x]);  
-    var node = document.createElement("LI");            
-    var textnode = document.createTextNode(`${music_name}`); 
+    music_name =  get_music_name(musicPath[x]);
+    var node = document.createElement("LI");
+    var div  =  document.createElement("DIV");
+    var textnode = document.createTextNode(`${music_name}`);
     var on_click = document.createAttribute('onclick');
-    let alt  = document.createAttribute('alt');
-    let val  = document.createAttribute('value');
-    var clas = document.createAttribute('class');
+    let alt_item  = document.createAttribute('alt');
+    let val_item  = document.createAttribute('value');
+    var item_class = document.createAttribute('class');
+
     on_click.value = 'set_music()';
-    alt.value  = `${musicPath[x]}`;
-    val.value  = `${musicPath.indexOf(musicPath[x])}`;
-    clas.value = 'music_items';
-    node.setAttributeNode(alt);
-    node.setAttributeNode(val);
+    alt_item.value = `${musicPath[x]}`;
+    val_item.value  = `${musicPath.indexOf(musicPath[x])}`;
+    item_class.value = 'music-list-item';
+
     node.setAttributeNode(on_click);
-    node.setAttributeNode(clas)  
-    node.appendChild(textnode);                              
+    node.setAttributeNode(alt_item);
+    node.setAttributeNode(val_item);
+    node.setAttributeNode(item_class);
+    node.appendChild(textnode);
+    node.appendChild(div);
     music_list.appendChild(node);
   }
 }
@@ -98,3 +103,16 @@ function get_music_name(path_name){
 
 }
 //Getting the music name
+
+function miniMize(){
+  remote.BrowserWindow.getFocusedWindow().minimize();
+}
+
+function maxMize(){
+  let window = remote.BrowserWindow.getFocusedWindow();
+  window.isMaximized() ? window.unmaximize() : window.maximize();
+}
+
+function exitApp(){
+  window.close();
+}
