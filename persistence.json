@@ -1,0 +1,23 @@
+{
+  "actList": {
+    "name": "My Musics",
+    "path": "./music_lists/0.txt"
+  },
+  "lists": [
+    {
+      "id": 0,
+      "name": "My Musics",
+      "path": "./music_lists/0.txt"
+    },
+    {
+      "id": 1,
+      "name": "List 1",
+      "path": "./music_lists/1.txt"
+    },
+    {
+      "id": 2,
+      "name": "Cliff",
+      "path": "./music_lists/2.txt"
+    }
+  ]
+}

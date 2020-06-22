@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="./styles/about.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./boob_icons/css/all.css">
+    <link href=".boob_icons/css/solid.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div id="header-title">About</div>
+        <div id="no-drag-div">
+            <button class="os-options-buttons os-exit-color" onclick="exitApp()">
+            <i class="fas fa-times"></i></button>
+        </div>
+    </header>
+    <div id="about-main">
+        <p class="title">Boob Player</p>
+        <p style="font: normal 14px monospace">A music player for linux users and <br>
+           other OS, facility is my filosophy
+        </p>
+        <div class="info-block">
+            Version: 1.1.1
+        </div>
+        <div class="info-block">
+                Electron: 7.1.2 <br>
+        </div>
+        <div class="info-block">
+            Node js: V8.10 <br>
+        </div>
+        <div class="info-block">
+            Dev: Mastercliff
+        </div>
+        <button class="info-block" onclick="openLink()" style="width: 160px;">
+            <i class="fab fa-github" style="font-size: 18px;"></i> GitHub
+        </button>
+    </div>
+<div>
+    
+</div>
+
+<script src="./renderer.js"></script>
+<script src="./music_controls.js"></script>
+<script src="./menu_options.js"></script>
+</body >
+</html>

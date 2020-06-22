@@ -1,13 +1,28 @@
+function createAboutWindow(){
+    let aboutWin = new BrowserWindow({
+        width: 500,
+        height: 600,
+        resizable: false,
+        frame: false,
+        webPreferences: {
+            nodeIntegration: true
+        }
+    })
+aboutWin.loadFile('about.html');
+}
+
+
 function open_file(){ //This function opens the files and saves them to a .txt file
     selectedPaths = dialog.showOpenDialogSync(null ,option);
+    pathList = selectedPaths;
     if(selectedPaths == undefined){
-       console.log('erro')
+       console.log('Cancelado')
    }
     else{
      let teste = '';
      let temp;
      clear_list()
-     musicPath = selectedPaths;
+     console.log(selectedPaths)
      for(let x=0; x<selectedPaths.length;x++){
      music_name =  get_music_name(selectedPaths[x]);
      var node = document.createElement("LI");
@@ -20,8 +35,8 @@ function open_file(){ //This function opens the files and saves them to a .txt f
      var item_class = document.createAttribute('class');
      on_click.value = 'set_music()';
 
-     alt_item.value = `${musicPath[x]}`;
-     val_item.value  = `${musicPath.indexOf(musicPath[x])}`;
+     alt_item.value = `${selectedPaths[x]}`;
+     val_item.value  = `${selectedPaths.indexOf(selectedPaths[x])}`;
      item_class.value = 'music-list-item';
     
      node.setAttributeNode(on_click);
@@ -34,62 +49,82 @@ function open_file(){ //This function opens the files and saves them to a .txt f
      temp = `${selectedPaths[x]}\n`
      teste = teste + temp
 
-     try { fs.writeFileSync('music-list-paths.txt',teste, 'utf-8'); }
-     catch(e) { alert('not save!'); }
+     try { fs.writeFileSync(musicPath,teste, 'utf-8'); }
+     catch(e) { console.log(e) }
 
      stop_au();
      }
     }
 
+}
 
-
+function add_music(){
+    selectedPaths = dialog.showOpenDialogSync(null ,option);
+    data = fs.readFileSync(musicPath, 'utf-8');
+    console.log(data);
+    for(i = 0; selectedPaths.length > i; i++){
+        temp = `${selectedPaths[i]}\n`;
+        if(data.indexOf(get_music_name(temp)) == -1){
+            console.log("add path: " + selectedPaths[i])
+            data = data + temp ;
+        }
+        else{
+            console.log("replicate remove path: " + selectedPaths[i])
+        }
+    }
+    
+    try { 
+        fs.writeFileSync(musicPath,data, 'utf-8');
+        clear_list()
+        updateMusicList()
+    }
+     catch(e) { console.log(e) }
 }
 //Active the player Viwer
 function player_Viwer(){
-    main_box.style.display = 'inline';
+    main_box.style.display = 'flex';
     left_menu_button[0].style.display = '';
     side_left_bar.style.display   = '';
 }
 
 function about(){
-   let message = `Version: ${version}\nThis app is still under development\n \nDeveloper: MasterCliff\nGithub: https://github.com/Mastercliff\nElectron Version: 7.1.2`
-   dNone();
-   alert_window.style.display = 'inline-block';
-   alert_message.innerText = `${message}`;
-   alert_message.style.textAlign = 'left';
-   exit_button[0].style.zIndex = '-1'
-   exit_button[0].style.color  = 'rgba(0, 0, 0, 0.2)'
-   exit_button[0].style.borderColor = 'rgba(0, 0, 0, 0.2)'
-
+  console.log("Chegoi");
+  createAboutWindow();
 
 }
 
 function shutdown(){
-    let message = "You really want leave the\n Aplication?"
-    dNone();
-    alert_message.innerText = message
-    alert_window.style.display = 'inline-block';
-    alert_message.style.textAlign = 'center';
-    exit_button[0].style.zIndex = ''
-    exit_button[0].style.color  = ''
-    exit_button[0].style.borderColor = ''
- 
+    const options = {
+        type: 'question',
+        buttons: ['Yes', 'No'],
+        defaultId: 2,
+        title: 'Exit',
+        message: 'Do you want to do this?',
+        detail: 'please dont :)',
+      };
+    
+      dialog.showMessageBox(null, options,).then((res) => {
+          if(res.response == 0){
+              exit();
+          }
+          else if(res.response == 1){
+             console.log("okay");
+          }
+      });
 }
 
 function exit(){
     window.close()
 }
 function cancel(){
-    main_box.style.display = 'inline';
+    main_box.style.display = '';
     alert_window.style.display = 'none';
     left_menu_button[0].style.display = '';
     side_left_bar.style.display   = '';
-    audio_control_block.style.display = '';
 }
 
 //Set the elements display to 'none'
 function dNone(){
-    audio_control_block.style.display = 'none';
     main_box.style.display = 'none';
     left_menu_button[0].style.display = 'none';
     side_left_bar.style.display   = 'none';

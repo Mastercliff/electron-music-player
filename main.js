@@ -5,11 +5,10 @@ const {app, BrowserWindow, Menu, dialog} = require('electron')
 function createWindow(){
     console.log('Start the app')
     let win1 = new BrowserWindow({
-        width :850,
+        width :800,
         height: 650,
         minWidth: 780,
         minHeight: 700,
-        frame: false,
         webPreferences:{
             nodeIntegration: true
         }
@@ -18,6 +17,6 @@ function createWindow(){
     win1.loadFile('index.html');
 }
 
-Menu.setApplicationMenu(false)
+//Menu.setApplicationMenu(false)
 app.on('ready', createWindow)
 app.on('close', ()=>{console.log('Exiting')})

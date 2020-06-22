@@ -5,7 +5,7 @@ player.addEventListener("playing", function(_event) {
   });
   player.addEventListener("pause", function(_event) {
     clearTimeout(timer);
-    console.log('exe')
+    console.log('timer clear');
   });
 
   var advance = function(duration, element) {
@@ -23,7 +23,9 @@ player.addEventListener("playing", function(_event) {
     let dur = (player.duration/60).toFixed(2)
     let ct  = (player.currentTime/60).toFixed(2)
 
-    if(ct == dur){
+    console.log(`duraçao: ${dur}, ct: ${ct}`)
+
+    if(ct == dur || (ct + 0.01) == dur){
       next_music()
     }
 
@@ -59,12 +61,12 @@ function next_music(){
   let index;
   let n_index;
   clearTimeout(timer);
-    index = musicPath.indexOf(player.value)
+    index = pathList.indexOf(player.value)
     n_index = index + 1;
-    if(n_index < musicPath.length){
-      player.src   = musicPath[n_index]
-      player.value = musicPath[n_index]
-      music_name = get_music_name(musicPath[n_index])
+    if(n_index < pathList.length){
+      player.src   = pathList[n_index]
+      player.value = pathList[n_index]
+      music_name = get_music_name(pathList[n_index])
       set_music_name(music_name);
       console.log(index)
       console.log(player.src)
@@ -74,9 +76,9 @@ function next_music(){
     }
     else{
     console.log('Back to first music')
-    player.src   = musicPath[0]
-    player.value = musicPath[0]
-    music_name = get_music_name(musicPath[0])
+    player.src   = pathList[0]
+    player.value = pathList[0]
+    music_name = get_music_name(pathList[0])
     set_music_name(music_name)
     play_pause();
     play_pause();
@@ -88,19 +90,19 @@ function back_music(){
   let index;
   let n_index;
   clearTimeout(timer);
-    index = musicPath.indexOf(player.value)
+    index = pathList.indexOf(player.value)
     n_index = index - 1;
-    if(n_index <= musicPath.length){
+    if(n_index <= pathList.length){
       if(n_index != -1){
-      player.src   = musicPath[n_index]
-      player.value = musicPath[n_index]
-      music_name = get_music_name(musicPath[n_index])
+      player.src   = pathList[n_index]
+      player.value = pathList[n_index]
+      music_name = get_music_name(pathList[n_index])
       set_music_name(music_name)
       play_pause();
       play_pause();
       }else{
-      player.src   = musicPath[0]
-      player.value = musicPath[0]
+      player.src   = pathList[0]
+      player.value = pathList[0]
       }
 
     }
@@ -139,34 +141,41 @@ function clear_list(){
 
 //Set the music
 function set_music(){
-    stop_au();
+    
     document.getElementById('list').addEventListener('click', function(e) {
       e = e || window.event;
 
       var target = e.target.id || e.srcElement
 
          text = target.textContent || target.innerText;
-         target.alt = musicPath[target.value];
+         target.alt = pathList[target.value];
          clearTimeout(timer);
           console.log("Chegou aqui " + target.alt);
           player.src = target.alt;
-          player.value = musicPath[target.value];
+          player.value = pathList[target.value];
           console.log(target.alt, target.value);
           music_name = get_music_name(target.alt);
           set_music_name(music_name);
+          stop_au();
           play_pause();
     }, false);
 
 
 }
 function set_music_name(name){
-    act_music.innerHTML = `<marquee>${name}</marquee>`;
+   // act_music.innerHTML = `<marquee>${name}</marquee>`;
+   act_music_name.innerText = name;
 }
 
+function clear_act_list(){
+  fs.writeFileSync(musicPath, "")
+  clear_list()
+  updateMusicList()
+}
 //Set the music
-
+/*
 function set_volume(){
   let vol_value = audio_control.value;
   let vol_result = vol_value/100;
   player.volume = `${vol_result}`;
-}
+}*/

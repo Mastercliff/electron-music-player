@@ -1,6 +1,6 @@
 const { dialog} = require('electron').remote;
 const {remote}    = require('electron');
-const {app}      = require('electron').remote;
+const {app , BrowserWindow, shell}      = require('electron').remote;
 const fs         = require('fs');
 const os         = require('os');
 
@@ -18,8 +18,14 @@ let alert_message       = document.getElementById("alert-message");
 let exit_button         = document.getElementsByClassName("alert-buttons");
 let side_left_bar       = document.getElementById("side-left-bar");
 let left_menu_button    = document.getElementsByClassName("left-menu-button");
-let audio_control_block = document.getElementById("audio-control-block");
-let audio_control    = document.getElementById("audio-control");
+let music_box   = document.getElementsByClassName("music-box");
+let music_art   = document.getElementsByClassName("music-art");
+let box_into_main = document.getElementsByClassName("box-into-main");
+let playlists_list = document.getElementById("playlists-list");
+let music_list_name = document.getElementById("music-list-name");
+let act_music_name       = document.getElementById("act-music-name");
+let info_read             = document.getElementById("info-read");
+let info_blocks     = document.getElementsByClassName("info-blocks");
 //getting the HTML elements
 
 
@@ -29,8 +35,10 @@ let timer;
 let percent = 0;
 let selectedPaths;
 let musicPath;
+let pathList;
 let music_name;
 let platform = os.platform()
+let persistenceJson;
 let option = {
     defaultPath: '/home/cliff',
     properties: ['openFile', 'multiSelections'],
@@ -43,18 +51,27 @@ let option = {
     }
 //declaring the variables
 
+try{
+  persistenceJson = JSON.parse(fs.readFileSync('./persistence.json', "utf-8"))
+  musicPath = persistenceJson["actList"]["path"]
+  music_list_name.value = persistenceJson["actList"]["name"]
+}
+catch(e){
 
+}
 //Check existing playlist
-musicPath = fs.readFileSync('music-list-paths.txt', {encoding:'utf-8'}).split('\n')
-if(musicPath.length > 0){
+
+function updateMusicList(){
+  pathList = fs.readFileSync(musicPath, {encoding:'utf-8'}).split('\n')
+if(pathList.length > 0){
   console.log('create');
   let temp;
-  let size = musicPath.length;
+  let size = pathList.length;
   console.log(size);
-  temp = musicPath;
-  musicPath  = temp.splice(0,size-1);
-  for(let x=0; x<musicPath.length;x++){
-    music_name =  get_music_name(musicPath[x]);
+  temp = pathList;
+  pathList  = temp.splice(0,size-1);
+  for(let x=0; x<pathList.length;x++){
+    music_name =  get_music_name(pathList[x]);
     var node = document.createElement("LI");
     var div  =  document.createElement("DIV");
     var textnode = document.createTextNode(`${music_name}`);
@@ -64,8 +81,8 @@ if(musicPath.length > 0){
     var item_class = document.createAttribute('class');
 
     on_click.value = 'set_music()';
-    alt_item.value = `${musicPath[x]}`;
-    val_item.value  = `${musicPath.indexOf(musicPath[x])}`;
+    alt_item.value = `${pathList[x]}`;
+    val_item.value  = `${pathList.indexOf(pathList[x])}`;
     item_class.value = 'music-list-item';
 
     node.setAttributeNode(on_click);
@@ -80,9 +97,67 @@ if(musicPath.length > 0){
 else{
 console.log('normal')
 }
+}
+updateMusicList()
 //Check existing playlist
 
+//Read the list of playlists
+for(i = 0; persistenceJson["lists"].length > i; i+=1){
+  var node = document.createElement("LI");
+  var div  =  document.createElement("DIV");
+  var textnode = document.createTextNode(`${persistenceJson["lists"][i]["name"]}`);
+  var on_click = document.createAttribute('onclick');
+  let alt_item  = document.createAttribute('alt');
+  let val_item  = document.createAttribute('value');
+  var item_class = document.createAttribute('class');
 
+  on_click.value = 'set_list(); selectPlayList(true);';
+  val_item.value = i;
+  alt_item.value  = `${persistenceJson["lists"][i]["path"]}`;
+  console.log(persistenceJson["lists"][i])
+
+  node.setAttributeNode(on_click);
+  node.setAttributeNode(alt_item);
+  node.setAttributeNode(val_item);
+  node.setAttributeNode(item_class);
+  node.appendChild(textnode);
+  node.appendChild(div);
+  playlists_list.appendChild(node);
+}
+
+
+//Select actual list
+function selectPlayList(backIsTrue){
+
+    if(backIsTrue == true){
+      info_blocks[0].style.display = "";
+      info_read.style.display = "";
+      box_into_main[0].style.display = "";
+    }
+    else{
+      info_blocks[0].style.display = "none";
+      info_read.style.display = "none";
+      box_into_main[0].style.display = "flex";
+    }
+}
+
+function set_list(){
+  
+  document.getElementById('playlists-list').addEventListener('click', function(e) {
+    e = e || window.event;
+
+    var target = e.target.id || e.srcElement
+    console.log("chgou aqui" + target.value)
+     target.alt =  `${persistenceJson["lists"][target.value]["path"]}`
+     music_list_name.value = `${persistenceJson["lists"][target.value]["name"]}`
+    musicPath = target.alt;
+    persistenceJson["actList"]["name"] = music_list_name.value;
+    persistenceJson["actList"]["path"] = musicPath;
+    fs.writeFileSync("./persistence.json", JSON.stringify(persistenceJson, null, 2))
+    clear_list();
+    updateMusicList()
+  }, false);
+}
 
 //Getting the music name
 function get_music_name(path_name){
@@ -115,4 +190,8 @@ function maxMize(){
 
 function exitApp(){
   window.close();
+}
+
+function openLink(){
+  shell.openExternal('https://github.com/Mastercliff')
 }
