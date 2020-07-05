@@ -1,11 +1,11 @@
 # Boob music player
 
-![image](./screen-shots/UI-V2_2.png)
+![image](./screen-shots/UI-V3.png)
 
 ## Supported Platforms
 
 - [x] Linux
-- [x] Windows
+- [ ] Windows
 - [ ] Mac OS
 
 

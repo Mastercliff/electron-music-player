@@ -36,6 +36,15 @@ body{
     -o-user-select:none;
 }
 
+
+
+h3{ 
+    color: white;
+    font:bold 15px 'Ubuntu';
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
 .header-drag-region {  /*added*/
     top: 6px;
     left: 6px;
@@ -101,24 +110,32 @@ li{
     text-align: start;
     justify-items: center;
     list-style-type: none;
+
+    background-color: rgb(17, 19, 24);
+    color: rgba(255, 255, 255, 0.575);
+
     margin: 0;
     margin-top: 8px;
     padding: 15px 5px;
     width: 90%;
+    
     overflow:hidden;
     transition: all 0.1s;
-    color: rgba(255, 255, 255, 0.575);
-    font: normal 14px verdana;
+    font: normal 14px 'Ubuntu';
+
+    border-radius: 0.2em;
 }
 
 
 li:hover{
-    background-color: white;
-    color: black;
+    background-color: rgb(8, 10, 15);
+    color: white;
 }
 
 .music-list-item{
     font: normal 14px 'Ubuntu';
+    text-transform: uppercase;
+
     background-color:rgb(17, 19, 24);
     border: solid 1px none;
     color: #FFF;
@@ -139,44 +156,6 @@ li:hover{
 }
 
 
-h3{ 
-    color: white;
-    font:normal 15px verdana;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-}
-.menu-button{
-    margin-left: 5px;
-    margin-top: 5px;
-    height: 50px;
-    border: solid 1px transparent;
-    background-color: rgb(94, 122, 199);
-    color: white;
-    padding: 10px 12px;
-    font-size: 1.5em;
-    transition: all 0.1s;
-    border-radius: 0.2em;
-}
-.menu-button:hover{
-    color: rgb(1, 11, 24);
-    background-color: transparent;
-    color: white;
-    border-color:white;
-}
-
-
-#button-bar-top{
-    padding-bottom: 12px;
-    padding-top: 5px;
-    width: 100%;
-    height: 10%;
-    display: flex;
-    flex-direction: row;
-    background-color: transparent;
-    border-bottom: solid 1px rgb(0, 0, 0);
-    z-index: 2;
-}
-
 .main-box{
     width: 100%;
     height: 100%;
@@ -196,12 +175,13 @@ h3{
 }
 
 .box-into-main{
+    margin-top: 20px;
     margin-left: 23px;
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     overflow: hidden;
-    height: 400px;
+    height: 100%;
     width: 90%;
     border-radius: 0.8em;
     text-align: center;
@@ -225,10 +205,9 @@ h3{
     background-color: transparent;
     border: none;
     outline: none;
-    border-bottom: 1px solid rgb(7, 7, 7);
     text-align: center;
     align-items: center;
-    font:normal 15px 'Ubuntu';
+    font:bold 15px 'Ubuntu';
 }
 
 .music-box{
@@ -274,7 +253,7 @@ h3{
 
 
     color: white;
-    font: normal 15px 'Ubuntu';
+    font: bold 15px 'Ubuntu';
 }
 
 .info-blocks{
@@ -296,10 +275,9 @@ h3{
     padding: 1% 0%;
     border: none;
     outline: none;
-    border-bottom: 1px solid rgb(0, 0, 0);
     text-align: center;
     align-items: center;
-    font:normal 15px 'Ubuntu';
+    font:bold 15px 'Ubuntu';
 }
 
 

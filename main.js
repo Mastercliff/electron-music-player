@@ -17,6 +17,6 @@ function createWindow(){
     win1.loadFile('index.html');
 }
 
-//Menu.setApplicationMenu(false)
+Menu.setApplicationMenu(false)
 app.on('ready', createWindow)
 app.on('close', ()=>{console.log('Exiting')})

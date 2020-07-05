@@ -6,7 +6,7 @@
     <title>Boob</title>
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/window-alerts.css">
-    <link rel="stylesheet" href="./styles/side-options.css">
+    <link rel="stylesheet" href="./styles/left-top-styles.css">
     <link rel="stylesheet" href="./boob_icons/css/all.css">
     <link href=".boob_icons/css/solid.css" rel="stylesheet">
     <link rel="icon" href="./boob_icons/icon.png">
@@ -20,6 +20,10 @@
                 <button class="menu-button" onclick="player_Viwer()" class="left-button-hover">
                     <i class="fas fa-music"></i>
                     <span class="ttext">Player</span>
+                </button>
+                <button class="menu-button" onclick="window.alert('Stream player')" class="left-button-hover">
+                    <i class="fab fa-mixcloud"></i>
+                    <span class="ttext">Stream Player</span>
                 </button>
                 <button class="menu-button" onclick="window.alert('In development...')">
                     <i class="fas fa-tools"></i>
@@ -37,33 +41,33 @@
         </div>
         <div id="midle-column">
             <div id="button-bar-top">
-                <button class="menu-button" style="font-size: 0.8em; margin-left: 10px;" onclick="add_music()">
+                <button class="menu-button" style="font-size: 0.85em; margin-left: 10px;" onclick="add_music()">
                     <i class="fas fa-plus"></i>
                     <span>Add Music</span>
                 </button>
     
-                <button class="menu-button" style="font-size: 0.8em;" onclick="console.log('NEW LIST')">
+                <button class="menu-button" style="font-size: 0.85em;" onclick="console.log('NEW LIST')">
                     <i class="fas fa-folder-plus"></i>
                     <span>New List</span>
                 </button>
         
-                <button class="menu-button" style="font-size: 0.8em;" onclick="selectPlayList(false)">
+                <button class="menu-button" style="font-size: 0.85em;" onclick="selectPlayList(false)">
                     <i class="fas fa-th-list"></i>
                         <span>Select List</span>
                 </button>
     
                     
-                <button class="menu-button" style="font-size: 0.8em;" onclick="window.alert('In development...')">
+                <button class="menu-button" style="font-size: 0.85em;" onclick="window.alert('In development...')">
                     <i class="fas fa-save"></i>
                         <span>Save List</span>
                 </button>
 
-                <button class="menu-button" style="font-size: 0.8em;" onclick="window.alert('In development...')">
+                <button class="menu-button" style="font-size: 0.85em;" onclick="window.alert('In development...')">
                     <i class="fas fa-star"></i>
                         <span>Favorites</span>
                 </button>
 
-                <button class="menu-button" style="font-size: 0.8em; background-color: red; color: white;" onclick="clear_act_list()">
+                <button class="menu-button" style="font-size: 0.85em; background-color: rgb(163, 82, 82); color: white;" onclick="clear_act_list()">
                     <i class="fas fa-trash-alt"></i>
                         <span>Delete All</span>
                 </button>
@@ -119,7 +123,14 @@
                         </div>
                 </div>
 
-                <div class="in-row" style="height: 40%;">
+                <div class="in-row" style="height: 40%; margin-top: 5px;">
+                    
+                    <div class="action-buttons">
+                        <button class="action-buttons-inside" onclick="window.alert('Music volumme')">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+
                     <div class="action-buttons">
                         <button class="action-buttons-inside" onclick="back_music()">
                                 <i class="fas fa-step-backward"></i>
@@ -143,7 +154,10 @@
                     </button>
                     <button class="action-buttons-inside" onclick="window.alert('Repeat function')">
                         <i class="fas fa-reply"></i>     
-                   </button>                     
+                   </button>
+                   <button class="action-buttons-inside" onclick="window.alert('To slim function')">
+                    <i class="fas fa-balance-scale"></i>     
+                    </button>                      
                     </div>
                 </div>
            </div>
