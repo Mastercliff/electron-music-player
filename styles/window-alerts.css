@@ -56,7 +56,82 @@
     -o-user-select: "";
 }
 
+#alert-box{
+    display: none;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    width: 100%;
+    position: absolute;
+}
 
+#insert-alert{
+    background-color:rgb(17, 19, 24);
+    box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.6);
+    border-bottom: solid 8px rgb(94, 122, 199);
+    margin-left: 23px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 30px 100px;
+    border-radius: 0.4em;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s;
+}
 
+#alert-input{
+    border-radius: 0.4em;
+    border: none;
+    padding: 10px 10px;
+    outline: none;
+    width: 80%;
+    font: normal 16px 'Ubuntu';
+}
 
+.alert-button{
+    height: 40px;
+    border: solid 2px transparent;
+    background-color: rgb(94, 122, 199);
+    color: white;
+  
+    padding: 10px 20px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 25px;
+  
+    font-size: 17px;
+    font-family: 'Ubuntu';
+    transition: all 0.4s;
+    border-radius: 0.2em;
+}
 
+.alert-button:hover{
+    background-color: transparent;
+    border-color: rgb(94, 122, 199);
+}
+
+.alert-button-red{
+    height: 40px;
+    border: solid 2px transparent;
+    background-color: rgb(199, 94, 94);
+    color: white;
+  
+    padding: 10px 20px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 25px;
+  
+    font-size: 17px;
+    font-family: 'Ubuntu';
+    transition: all 0.4s;
+    border-radius: 0.2em;
+}
+
+.alert-button-red:hover{
+    background-color: transparent;
+    border-color: rgb(199, 94, 94);
+}

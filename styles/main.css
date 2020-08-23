@@ -116,7 +116,7 @@ li{
 
     margin: 0;
     margin-top: 8px;
-    padding: 15px 5px;
+    padding: 15px 10px;
     width: 90%;
     
     overflow:hidden;
@@ -180,6 +180,7 @@ li:hover{
     display: none;
     flex-direction: column;
     justify-content: start;
+    align-items: center;
     overflow: hidden;
     height: 100%;
     width: 90%;
@@ -187,6 +188,8 @@ li:hover{
     text-align: center;
     transition: all 1s;
 }
+
+
 
 .playlist-box{
     overflow: auto;
@@ -345,10 +348,10 @@ li:hover{
 
 
 .progress-object{
-    margin-left: 5%;
+    margin-left: 19%;
     margin-top: 20px;
     background-color: rgb(248, 247, 247);
-    width: 90%;
+    width: 60%;
     height: 6px;
     border: solid 1px rgb(0, 0, 0);
     border-radius: 0.2em;

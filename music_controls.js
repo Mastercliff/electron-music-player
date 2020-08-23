@@ -167,11 +167,6 @@ function set_music_name(name){
    act_music_name.innerText = name;
 }
 
-function clear_act_list(){
-  fs.writeFileSync(musicPath, "")
-  clear_list()
-  updateMusicList()
-}
 //Set the music
 /*
 function set_volume(){

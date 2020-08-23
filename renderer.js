@@ -13,8 +13,8 @@ let progress            = document.getElementById("progress");
 let act_music           = document.getElementById("m_name");
 let music_list          = document.getElementById("list");
 let main_box            = document.getElementById("main-box");
-let alert_window        = document.getElementById("alert-window");
-let alert_message       = document.getElementById("alert-message");
+let alert_box           = document.getElementById("alert-box");
+let alert_input         = document.getElementById("alert-input");
 let exit_button         = document.getElementsByClassName("alert-buttons");
 let side_left_bar       = document.getElementById("side-left-bar");
 let left_menu_button    = document.getElementsByClassName("left-menu-button");
@@ -49,16 +49,45 @@ let option = {
         {name: 'M4a', extensions:['m4a']}
             ]
     }
-//declaring the variables
 
-try{
-  persistenceJson = JSON.parse(fs.readFileSync('./persistence.json', "utf-8"))
-  musicPath = persistenceJson["actList"]["path"]
-  music_list_name.value = persistenceJson["actList"]["name"]
-}
-catch(e){
 
+function update_lists(){
+  try{
+    persistenceJson = JSON.parse(fs.readFileSync('./persistence.json', "utf-8"))
+    musicPath = persistenceJson["actList"]["path"]
+    music_list_name.value = persistenceJson["actList"]["name"]
+
+    for(i = 0; persistenceJson["lists"].length > i; i+=1){
+      let node = document.createElement("LI");
+      let div  =  document.createElement("DIV");
+      let textnode = document.createTextNode(`${persistenceJson["lists"][i]["name"]}`);
+      let on_click = document.createAttribute('onclick');
+      let alt_item  = document.createAttribute('alt');
+      let val_item  = document.createAttribute('value');
+      let item_class = document.createAttribute('class');
+    
+      on_click.value = 'set_list(); selectPlayList(true);';
+      val_item.value = i;
+      alt_item.value  = `${persistenceJson["lists"][i]["path"]}`;
+      console.log(persistenceJson["lists"][i])
+    
+      node.setAttributeNode(on_click);
+      node.setAttributeNode(alt_item);
+      node.setAttributeNode(val_item);
+      node.setAttributeNode(item_class);
+      node.appendChild(textnode);
+      node.appendChild(div);
+      playlists_list.appendChild(node);
+    }
+
+    console.log("Json read");
+  }
+  catch(e){
+  
+  }
 }
+
+update_lists();
 //Check existing playlist
 
 function updateMusicList(){
@@ -72,13 +101,13 @@ if(pathList.length > 0){
   pathList  = temp.splice(0,size-1);
   for(let x=0; x<pathList.length;x++){
     music_name =  get_music_name(pathList[x]);
-    var node = document.createElement("LI");
-    var div  =  document.createElement("DIV");
-    var textnode = document.createTextNode(`${music_name}`);
-    var on_click = document.createAttribute('onclick');
+    let node = document.createElement("LI");
+    let div  =  document.createElement("DIV");
+    let textnode = document.createTextNode(`${music_name}`);
+    let on_click = document.createAttribute('onclick');
     let alt_item  = document.createAttribute('alt');
     let val_item  = document.createAttribute('value');
-    var item_class = document.createAttribute('class');
+    let item_class = document.createAttribute('class');
 
     on_click.value = 'set_music()';
     alt_item.value = `${pathList[x]}`;
@@ -102,28 +131,7 @@ updateMusicList()
 //Check existing playlist
 
 //Read the list of playlists
-for(i = 0; persistenceJson["lists"].length > i; i+=1){
-  var node = document.createElement("LI");
-  var div  =  document.createElement("DIV");
-  var textnode = document.createTextNode(`${persistenceJson["lists"][i]["name"]}`);
-  var on_click = document.createAttribute('onclick');
-  let alt_item  = document.createAttribute('alt');
-  let val_item  = document.createAttribute('value');
-  var item_class = document.createAttribute('class');
 
-  on_click.value = 'set_list(); selectPlayList(true);';
-  val_item.value = i;
-  alt_item.value  = `${persistenceJson["lists"][i]["path"]}`;
-  console.log(persistenceJson["lists"][i])
-
-  node.setAttributeNode(on_click);
-  node.setAttributeNode(alt_item);
-  node.setAttributeNode(val_item);
-  node.setAttributeNode(item_class);
-  node.appendChild(textnode);
-  node.appendChild(div);
-  playlists_list.appendChild(node);
-}
 
 
 //Select actual list
@@ -146,7 +154,7 @@ function set_list(){
   document.getElementById('playlists-list').addEventListener('click', function(e) {
     e = e || window.event;
 
-    var target = e.target.id || e.srcElement
+    let target = e.target.id || e.srcElement
     console.log("chgou aqui" + target.value)
      target.alt =  `${persistenceJson["lists"][target.value]["path"]}`
      music_list_name.value = `${persistenceJson["lists"][target.value]["name"]}`
@@ -177,7 +185,7 @@ function get_music_name(path_name){
   }
 
 }
-//Getting the music name
+
 
 function miniMize(){
   remote.BrowserWindow.getFocusedWindow().minimize();

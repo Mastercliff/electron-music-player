@@ -80,6 +80,33 @@ function add_music(){
     }
      catch(e) { console.log(e) }
 }
+
+function add_new_list(){
+    let pathName = persistenceJson["lists"].length;
+    let listName = alert_input.value;
+    let newPlayList = {
+        "name": `${listName}`,
+        "path": `./music_lists/${pathName}.txt`
+    }
+    persistenceJson["lists"].push(newPlayList);
+    fs.writeFileSync(`./music_lists/${pathName}.txt`, "");
+    fs.writeFileSync("./persistence.json", JSON.stringify(persistenceJson, null, 2));
+    playlists_list.innerHTML = "";
+    update_lists();
+    alert_box.style.display = '';
+}
+
+function clear_act_list(){
+    let result = window.confirm('You want delete all musics in this list?');
+  
+    if(result == true){
+      fs.writeFileSync(musicPath, "")
+      clear_list()
+      updateMusicList()
+    }
+    
+}
+
 //Active the player Viwer
 function player_Viwer(){
     main_box.style.display = 'flex';

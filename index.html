@@ -13,7 +13,15 @@
 
 </head>
 <body>
-
+    <div id="alert-box" >
+        <div id="insert-alert">
+            <input type="text" id="alert-input" placeholder="Insert The List Name">
+            <div class="in-row">
+                <button class="alert-button" onclick="add_new_list()">Done</button>
+                <button class="alert-button-red" onclick="alert_box.style.display = '';">Cancel</button>
+            </div>
+        </div>
+    </div>
     <div class="main-box">
         <div id="left-column">
             <div class="left-button-box">
@@ -46,7 +54,7 @@
                     <span>Add Music</span>
                 </button>
     
-                <button class="menu-button" style="font-size: 0.85em;" onclick="console.log('NEW LIST')">
+                <button class="menu-button" style="font-size: 0.85em;" onclick="alert_box.style.display = 'flex';">
                     <i class="fas fa-folder-plus"></i>
                     <span>New List</span>
                 </button>
@@ -86,6 +94,9 @@
         
                 </div>
                 <div class="music-art">
+                    <h3>
+                        <input id="info-read" readonly value="Info" type="text">
+                    </h3>
                     <div class="box-into-main">
                         <h3>Select a playlist</h3>
                         <div class="playlist-box">
@@ -93,21 +104,19 @@
                                 
                             </ul>
                         </div>
-                        <button class="menu-button" onclick="selectPlayList(true)">
+                        <button class="menu-button" style="padding: 0 30px; margin-bottom: 10px; margin-top: 0;" onclick="selectPlayList(true)">
                             <i class="fas fa-arrow-left"></i>
                             <span class="ttext">Back</span>
                         </button>
                     </div>
-                    <h3>
-                        <input id="info-read" readonly value="Info" type="text">
-                    </h3>
+                    
         
                     <div class="info-blocks">
                         <div class="info-block">
                             <p style="margin-left: 8px;"> <i class="fas fa-smile"></i> Name: <span id="act-music-name"></span></p>
                         </div>
                         <div class="info-block">
-                            <p style="margin-left: 8px;"> <i class="fas fa-user-alt"></i> Autor: <span>Unknowm</span> </p>
+                            <p style="margin-left: 8px;"> <i class="fas fa-user-alt"></i> Author: <span>Unknowm</span> </p>
                         </div>
                         <div class="info-block">
                             <p style="margin-left: 8px;"> <i class="fas fa-compact-disc"></i> Album: <span>Unknowm</span> </p>
