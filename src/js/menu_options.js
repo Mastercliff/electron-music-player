@@ -8,7 +8,7 @@ function createAboutWindow(){
             nodeIntegration: true
         }
     })
-aboutWin.loadFile('about.html');
+aboutWin.loadFile('./src/about.html');
 }
 
 

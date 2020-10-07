@@ -14,7 +14,7 @@ function createWindow(){
         }
     })
 
-    win1.loadFile('index.html');
+    win1.loadFile('./src/index.html');
 }
 
 //Menu.setApplicationMenu(false)

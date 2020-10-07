@@ -1,20 +1,12 @@
 {
   "actList": {
-    "name": "Nova lista de testes meu caro",
-    "path": "./music_lists/2.txt"
+    "name": "My Musics",
+    "path": "./music_lists/0.txt"
   },
   "lists": [
     {
       "name": "My Musics",
       "path": "./music_lists/0.txt"
-    },
-    {
-      "name": "Lista de Teste",
-      "path": "./music_lists/1.txt"
-    },
-    {
-      "name": "Nova lista de testes meu caro",
-      "path": "./music_lists/2.txt"
     }
   ]
 }
