@@ -1,5 +1,5 @@
 {
-  "name": "Boob player",
+  "name": "Boob Player",
   "version": "1.1.1",
   "description": "",
   "main": "main.js",
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^7.1.2"
+    "electron": "^11.3.0"
   }
 }
