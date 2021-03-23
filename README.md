@@ -14,7 +14,7 @@
 
 ### You need install
 
-- Nodejs    V12.18.3 or Higher
+- Nodejs    V14 or Higher
 - Npm       V6.14.6 or Higher
 - Chromium or Chrome
 
