@@ -252,7 +252,7 @@ li:hover{
     border-bottom: solid 5px rgb(94, 122, 199);
     border-radius: 0.2em;
     background-color:rgb(17, 19, 24);
-    box-shadow: 0.5px 0.5px 10px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0.5px 0.5px 6px 6px rgba(0, 0, 0, 0.05);
 
 
     color: white;
