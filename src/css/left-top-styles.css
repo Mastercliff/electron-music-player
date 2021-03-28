@@ -4,9 +4,9 @@
   justify-content: center;
   justify-items: center;
   padding: 0 15px;
-  background-image: linear-gradient(to bottom, rgb(12, 14, 17) ,rgb(14, 19, 27));
-  border-right: solid 1px rgb(3, 3, 3);
-  box-shadow: 3px 0px 10px 10px rgba(3, 3, 3, 0.500);
+  background-color: rgb(12, 14, 17);
+
+  /* box-shadow: 3px 0px 10px 10px rgba(3, 3, 3, 0.100); */
   transition: all 0.4s;
   z-index: 3;
 }
@@ -31,7 +31,7 @@
   height: 50px;
 
   border: solid 1px transparent;
-  background-color: rgb(94, 122, 199);
+  background-color: rgb(17, 19, 24);
   color: white;
 
   padding: 10px 12px;
@@ -42,7 +42,7 @@
   font-size: 1.5em;
   font-family: 'Ubuntu';
   transition: all 0.4s;
-  border-radius: 0.2em;
+  border-radius: 0.3em;
 }
 .menu-button:hover{
   color: rgb(1, 11, 24);
@@ -60,7 +60,7 @@
   display: flex;
   flex-direction: row;
   background-color: transparent;
-  border-bottom: solid 1px rgb(0, 0, 0);
+  
   z-index: 2;
 }
 

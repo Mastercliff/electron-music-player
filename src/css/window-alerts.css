@@ -69,13 +69,13 @@
 
 #insert-alert{
     background-color:rgb(17, 19, 24);
-    box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.6);
+    box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.1);
     border-bottom: solid 8px rgb(94, 122, 199);
     margin-left: 23px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    padding: 30px 100px;
+    padding:50px 100px;
     border-radius: 0.4em;
     text-align: center;
     align-items: center;
@@ -84,11 +84,11 @@
 }
 
 #alert-input{
-    border-radius: 0.4em;
+    border-radius: 5em;
     border: none;
-    padding: 10px 10px;
+    padding: 12px 15px;
     outline: none;
-    width: 80%;
+    width: 100%;
     font: normal 16px 'Ubuntu';
 }
 
@@ -106,7 +106,7 @@
     font-size: 17px;
     font-family: 'Ubuntu';
     transition: all 0.4s;
-    border-radius: 0.2em;
+    border-radius: 0.3em;
 }
 
 .alert-button:hover{
@@ -128,7 +128,7 @@
     font-size: 17px;
     font-family: 'Ubuntu';
     transition: all 0.4s;
-    border-radius: 0.2em;
+    border-radius: 0.3em;
 }
 
 .alert-button-red:hover{
