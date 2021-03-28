@@ -1,5 +1,5 @@
 const { ipcRenderer, contextBridge, remote } = require('electron');
-const { dialog, shell } = remote;
+const { dialog, shell, BrowserWindow } = remote;
 const fs = require('fs');
 const { readFileSync, writeFileSync } = fs;
 
@@ -13,6 +13,7 @@ contextBridge.exposeInMainWorld(
         readFileSync: readFileSync,
         writeFileSync: writeFileSync,
         platform: platform,
-        fs: fs
+        fs: fs,
+        BrowserWindow: BrowserWindow
     }
 )

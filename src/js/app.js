@@ -176,14 +176,14 @@ function set_list() {
 
 //Getting the music name
 function get_music_name(path_name) {
-  console.log(platform)
-  if (platform == 'linux') {
+  platform = window.navigator.platform;
+  if (platform == 'Linux x86_64') {
     path_name = path_name.replace('/\/g', "/");
     let arch_name = path_name.substring(path_name.lastIndexOf('/') + 1);
     let exten = arch_name.substring(arch_name.lastIndexOf('.') + 1);
     return arch_name;
   }
-  if (platform == 'win32') {
+  if (platform == 'Win32') {
     path_name = path_name.match(/[^\\]+$/)
     return path_name
   }

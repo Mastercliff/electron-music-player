@@ -1,11 +1,12 @@
 function createAboutWindow() {
-    let aboutWin = new BrowserWindow({
+    let aboutWin = new window.api.BrowserWindow({
         width: 500,
         height: 600,
         resizable: false,
         frame: false,
         webPreferences: {
-            nodeIntegration: true
+            enableRemoteModule: true,
+
         }
     })
     aboutWin.loadFile('./src/about.html');
@@ -116,7 +117,7 @@ function player_Viwer() {
 }
 
 function about() {
-    console.log("Chegoi");
+
     createAboutWindow();
 
 }
