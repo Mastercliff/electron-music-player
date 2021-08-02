@@ -1,6 +1,6 @@
 # Boob music player
 
-![image](./screen-shots/UI-V3.png)
+![image](./screen-shots/UI-V4.png)
 
 ## Supported Platforms
 
