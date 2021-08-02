@@ -1,15 +1,16 @@
 function createAboutWindow() {
-    let aboutWin = new window.api.BrowserWindow({
-        width: 500,
-        height: 600,
-        resizable: false,
-        frame: false,
-        webPreferences: {
-            enableRemoteModule: true,
+    window.open('../about.html', '', 'top=500,left=200,frame=false,nodeIntegration=no')
+    // let aboutWin = new browserWindow({
+    //     width: 500,
+    //     height: 600,
+    //     resizable: false,
+    //     frame: false,
+    //     webPreferences: {
+    //         enableRemoteModule: true,
 
-        }
-    })
-    aboutWin.loadFile('./src/about.html');
+    //     }
+    // })
+    // aboutWin.loadFile('./src/about.html');
 }
 
 

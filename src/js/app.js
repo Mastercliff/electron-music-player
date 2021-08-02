@@ -1,9 +1,6 @@
-console.log(window.api.shell);
-console.log(window.api.dialog);
-console.log(window.api.fs);
-
 let dialog = window.api.dialog;
 let shell = window.api.shell;
+let browserWindow = window.api.browserWindow;
 
 let readFileSync = window.api.readFileSync;
 let writeFileSync = window.api.writeFileSync;

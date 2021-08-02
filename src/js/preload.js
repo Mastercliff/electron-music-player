@@ -14,6 +14,6 @@ contextBridge.exposeInMainWorld(
         writeFileSync: writeFileSync,
         platform: platform,
         fs: fs,
-        BrowserWindow: BrowserWindow
+        browserWindow: BrowserWindow
     }
 )
